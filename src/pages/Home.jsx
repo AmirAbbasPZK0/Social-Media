@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import useAsync from "../hooks/useAsync";
+import Post from "../components/Post";
 
 const Home = () => {
     
@@ -12,19 +13,16 @@ const Home = () => {
     if(loading)
         return <div className="flex items-center justify-center"><h1>Loading...</h1></div>
 
+    console.log(data)
+
     return (<>
-        <div className="flex items-center justify-center flex-wrap gap-2 h-[100vh]">
-            {data?.data?.map((item , index) => (
-                <div key={index} className="w-[300px] flex flex-col items-center justify-evenly h-[300px] rounded-md bg-slate-100">
-                    <div className="flex flex-row justify-evenly gap-5">
-                        <img src={item.author.profile} className="w-[60px] h-[60px] rounded-md" alt="" />
-                        <h3 className="text-[20px]">{item.author.username}</h3>
-                    </div>
-                    <div className="flex flex-row items-start justify-start gap-5">
-                        <p className="text-slate-600">{item.description}</p>
-                    </div>
-                </div>
-            ))}
+        <div className="flex items-center flex-col">
+            <h1 className="text-[40px]">Posts</h1>
+            <div className="flex items-center justify-center flex-col gap-2 pt-5 pb-4">
+                {data?.data?.map((item , index) => (
+                    <Post key={index} data={item}/>
+                ))}
+            </div>
         </div>
     </>);
 }

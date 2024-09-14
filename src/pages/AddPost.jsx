@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import useAsync from "../hooks/useAsync"
 import {useForm} from 'react-hook-form'
 import { useNavigate } from "react-router-dom";
+import { data } from "jquery";
 
 const AddPost = () => {
 
@@ -31,7 +32,7 @@ const AddPost = () => {
                     <h1 className='text-[40px]'>Add Post</h1>
                     <label htmlFor="">
                         <h3>Description</h3>
-                        <input {...register("description" , {required : true})} placeholder='Description' className="p-3 w-[300px] rounded-md border-none" type="text" />
+                        <textarea {...register("description" , {required : true})} placeholder='Description' className="p-3 w-[300px] rounded-md border-none" type="text" />
                     </label>
                     <button type='submit' disabled={loading} className="w-[300px] bg-blue-500 text-slate-200 hover:bg-slate-900 hover:text-slate-200 p-2 rounded-md transition">{
                         loading ? "Pending" : "Submit"
