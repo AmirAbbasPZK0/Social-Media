@@ -11,7 +11,11 @@ const PostSchema = new mongoose.Schema({
         type : mongoose.Types.ObjectId,
         ref : "User"
     }
-})
+},
+    {
+        timestamps : true
+    }
+)
 
 PostSchema.virtual("comments" , {
     ref : "Comment",
