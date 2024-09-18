@@ -14,9 +14,9 @@ const PostDetails = () => {
     
     const userId = useSelector(state => state?.user?.data?._id)
 
-    console.log(userId)
-
     const mainData = data?.data
+
+    console.log(mainData)
 
     const {register , handleSubmit} = useForm()
 
@@ -36,7 +36,7 @@ const PostDetails = () => {
         return <div>Loading...</div>
 
     return (<>
-        <div className='p-14 flex items-center flex-col justify-center'>
+        <div className='p-14 flex items-center flex-col justify-start'>
             <div className='flex items-center flex-row justify-between gap-2'>
                 <img className='w-[90px] h-[90px] rounded-full' src={mainData?.author?.profile} alt="" />
                 <h1 className='text-[2rem] font-bold'>{mainData?.author?.username}</h1>
@@ -50,11 +50,12 @@ const PostDetails = () => {
                 <h3 className='font-semibold text-[40px]'>Comments</h3>
                 <ul className='flex flex-col items-start gap-5'>
                     {mainData?.comments?.map((item , index) => (
-                        <li key={index} className='flex flex-col justify-center items-start'>
+                        <li key={index} className='flex gap-5 flex-col justify-center items-start'>
                             <h5 className='flex flex-row justify-center items-center gap-3'>
                                 <img src={item?.author?.profile} className='w-[50px] h-[50px] rounded-full' alt="" srcset="" /> <span className='font-semibold'>{item?.author?.username}</span>
                             </h5>
-                            <p>{item.description}</p>
+                            <p className='text-[20px]'>{item.description}</p>
+                            <span className='text-slate-400'>{new Date(item.createdAt).toLocaleString()}</span>
                             <hr />
                         </li>
                     ))}

@@ -39,7 +39,7 @@ const App = () => {
   return (<>
     <div>
       <div className='flex items-center'>
-        <button className='rounded-md p-3 bg-slate-600 text-white' onClick={()=>{
+        <button className='rounded-md p-3 sticky z-999 bg-slate-600 text-white' onClick={()=>{
           dispatch(tabHandler())
         }}>Open</button>
       </div>
