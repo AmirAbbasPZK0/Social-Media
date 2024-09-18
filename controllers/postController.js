@@ -30,7 +30,7 @@ module.exports.getPost = async (req , res) => {
     
     const {id} = req.params
 
-    const post = await postModel.findOne({_id : id}).populate("author").lean().populate("comments" , "description author")
+    const post = await postModel.findOne({_id : id}).populate("author").lean().populate("comments" , "description author createdAt")
 
     if(post){
         res.json(post)
