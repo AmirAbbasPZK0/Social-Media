@@ -1,16 +1,23 @@
 const mongoose = require("mongoose")
+const {UserSchema} = require('./userModel')
 
-const CommentSchema = new mongoose.Schema("Comment",{
-    description : {
-        required : true,
-        type : String
+const CommentSchema = new mongoose.Schema(
+    {
+        description : {
+            required : true,
+            type : String
+        },
+        author : {
+            type : UserSchema
+        },
+        post : {
+            type : mongoose.Types.ObjectId,
+        }
     },
-    author : {
-        required : true,
-        type : mongoose.Types.ObjectId,
-        ref : "User"
+    {
+        timestamps : true
     }
-})
+)
 
 const commentModel = mongoose.model("Comment" , CommentSchema)
 

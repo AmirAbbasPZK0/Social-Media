@@ -1,17 +1,18 @@
 const mongoose = require("mongoose")
 
 
-const PostSchema = new mongoose.Schema({
-    description : {
-        required : true,
-        type : String
+const PostSchema = new mongoose.Schema(
+    {
+        description : {
+            required : true,
+            type : String
+        },
+        author : {
+            required : true,
+            type : mongoose.Types.ObjectId,
+            ref : "User"
+        }
     },
-    author : {
-        required : true,
-        type : mongoose.Types.ObjectId,
-        ref : "User"
-    }
-},
     {
         timestamps : true
     }
@@ -24,6 +25,5 @@ PostSchema.virtual("comments" , {
 })
 
 const postModel = mongoose.model("Post" , PostSchema)
-
 
 module.exports = postModel

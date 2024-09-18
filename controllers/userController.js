@@ -1,4 +1,4 @@
-const userModel = require("../models/userModel")
+const {userModel} = require("../models/userModel")
 const authConfig = require("../configs/auth")
 
 module.exports.editUser = async (req , res) => {

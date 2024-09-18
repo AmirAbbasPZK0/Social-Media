@@ -1,5 +1,5 @@
 const authConfig = require("../configs/auth")
-const userModel = require("../models/userModel")
+const {userModel} = require("../models/userModel")
 
 module.exports.register = async (req , res) => {
     
