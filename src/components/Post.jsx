@@ -1,6 +1,13 @@
+import {useNavigate} from 'react-router-dom'
+
 const Post = ({data}) => {
+
+    const navigate = useNavigate()
+
     return (<>
-        <figure className="flex flex-col pt-5 pb-5 border-slate-500 border-1 bg-slate-300 w-[60%] rounded-md ">
+        <figure onClick={()=>{
+            navigate(`/posts/${data?._id}`)
+        }} className="flex flex-col pt-5 pb-5 cursor-pointer border-slate-500 border-1 bg-slate-300 w-[60%] rounded-md ">
             <div className="p-4 flex gap-4 items-center flex-row">
                 <img src={data?.author?.profile} className="w-[60px] h-[60px] rounded-full" alt="" />
                 <h2 className="text-[20px] font-semibold">{data?.author?.username}</h2>

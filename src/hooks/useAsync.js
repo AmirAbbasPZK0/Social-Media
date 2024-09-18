@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const BASE_URL = "http://localhost:8000"
 
-const useAsync = (innerUrl , method , hasAuthorization = null ) => {
+const useAsync = (innerUrl , method , hasAuthorization = null) => {
     
     const [data , setData] = useState([])
     const [loading , setLoading] = useState(false)

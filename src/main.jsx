@@ -13,6 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import {ToastContainer} from 'react-toastify'
 import EditUser from './pages/EditUser.jsx'
 import AddPost from './pages/AddPost.jsx'
+import PostDetails from './pages/PostDetails.jsx'
 
 
 const router = createBrowserRouter([
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         element : <AddPost/>,
         path : "/add-post"
+      },
+      {
+        element : <PostDetails/>,
+        path : "/posts/:id"
       }
     ],
     

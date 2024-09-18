@@ -26,7 +26,7 @@ const SlideBar = () => {
             <aside className="group/sidebar flex flex-col shrink-0 lg:w-[300px] w-[250px] transition-all duration-300 ease-in-out m-0 fixed z-40 inset-y-0 left-0 bg-white border-r border-r-dashed border-r-neutral-200 sidenav fixed-start loopple-fixed-start" id="sidenav-main">
             <button onClick={()=>{
                 dispatch(tabHandler())
-            }} className='p-2 rounded-md bg-slate-500 text-white'>close</button>
+            }} className='p-2 bg-slate-500 text-white'>close</button>
             <div className="flex shrink-0 px-8 items-center justify-between h-[96px]">
             <h2 className='text-[50px] text-blue-700'>Atlas</h2>
         </div>
