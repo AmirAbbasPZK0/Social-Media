@@ -58,21 +58,29 @@ module.exports.logIn = async (req , res) => {
 }
 
 module.exports.getUser = async (req , res) => {
-    
+
     const token = req.headers.authorization
 
     const tokenPayload = authConfig.takePayloadFromToken(token)
 
+    console.log()
+
     if(!tokenPayload){
         res.status(401).json({message : "Unauthorized"})
-    }
+    }else{
+        if(!tokenPayload.exp){
+            res.status(401).json({message : "Token Expired"})
+        }else{
 
-    const user = await userModel.findOne({
-        $or : [{email : tokenPayload?.email}]
-    })
+            const user = await userModel.findOne({
+                $or : [{email : tokenPayload?.email}]
+            })
 
-    if(user){
-        res.json(user)
+            console.log(user)
+        
+            if(user){
+                res.json(user)
+            }    
+        }
     }
-    
 }

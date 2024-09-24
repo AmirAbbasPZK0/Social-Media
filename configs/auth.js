@@ -20,7 +20,7 @@ exports.takePayloadFromToken = (token) => {
     try{
         const tokenPayload = jwt.verify(token , "my_private_key")
         return tokenPayload
-    }catch(err){    
+    }catch(err){
         console.log(err)
     }
 }
