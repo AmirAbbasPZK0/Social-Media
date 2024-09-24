@@ -29,7 +29,14 @@ const App = () => {
       }).then(res => {
         return res.json()
       }).then(data => {
+        if(data.message === "Unauthorized"){
+          localStorage.removeItem("token")
+          navigate('/login')
+          window.location.reload()
+        }
         dispatch(loginHandler(data))
+      }).catch(err => {
+        console.log(err)
       })
     }else{
       navigate("/login")
