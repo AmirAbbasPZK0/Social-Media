@@ -63,8 +63,6 @@ module.exports.getUser = async (req , res) => {
 
     const tokenPayload = authConfig.takePayloadFromToken(token)
 
-    console.log()
-
     if(!tokenPayload){
         res.status(401).json({message : "Unauthorized"})
     }else{
@@ -75,8 +73,6 @@ module.exports.getUser = async (req , res) => {
             const user = await userModel.findOne({
                 $or : [{email : tokenPayload?.email}]
             })
-
-            console.log(user)
         
             if(user){
                 res.json(user)

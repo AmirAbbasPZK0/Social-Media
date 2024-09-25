@@ -2,6 +2,7 @@ const express = require("express")
 const authRouter = require("./routes/authRouter")
 const cors = require("cors")
 const uploader = require("./middlewares/multer")
+const postUploader = require("./middlewares/multerPost")
 const userRouter = require("./routes/userRouter")
 const postRouter = require("./routes/postRouter")
 const http = require("http")
@@ -21,6 +22,7 @@ const app = express()
 const server = http.createServer(app)
 
 app.use(express.static("uploads/profiles/"))
+app.use(express.static("uploads/posts/"))
 app.use(cors(corsOptions))
 app.use(express.json())
 app.use(express.urlencoded())
@@ -31,6 +33,10 @@ app.use("/api/posts" , postRouter)
 app.use("/api/comments" , commentRouter)
 
 app.use("/api/user/upload-profile" , uploader.single("profile"), async (req , res) => {
+    res.json(req.file)
+})
+
+app.use("/api/user/upload-post" , postUploader.single("post") , async (req , res) => {
     res.json(req.file)
 })
 

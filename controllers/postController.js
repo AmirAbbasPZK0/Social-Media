@@ -12,11 +12,12 @@ module.exports.getAll = async (req , res) => {
 
 module.exports.add = async (req , res) => {
 
-    const {description , author} = req.body
+    const {description , author , image} = req.body
 
     const createPost = await postModel.create({
         description,
-        author
+        author,
+        image
     })
 
     if(createPost){
