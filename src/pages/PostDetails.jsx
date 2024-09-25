@@ -36,11 +36,12 @@ const PostDetails = () => {
         return <div>Loading...</div>
 
     return (<>
-        <div className='p-14 flex items-center flex-col justify-start'>
+        <div className='p-14 flex items-center flex-col gap-5 justify-start'>
             <div className='flex items-center flex-row justify-between gap-2'>
                 <img className='w-[90px] h-[90px] rounded-full' src={mainData?.author?.profile} alt="" />
                 <h1 className='text-[2rem] font-bold'>{mainData?.author?.username}</h1>
             </div>
+            <img src={mainData?.image} className='w-[40%] h-[40%] rounded-md' alt="" />
             <div className='p-4 gap-4 flex items-center justify-center flex-col w-[700px] text-center'>
                 <p>{mainData?.description}</p>
                 <span className='text-slate-500'>{new Date(mainData?.createdAt).toLocaleString()}</span>
@@ -52,7 +53,7 @@ const PostDetails = () => {
                     {mainData?.comments?.map((item , index) => (
                         <li key={index} className='flex gap-5 flex-col justify-center items-start'>
                             <h5 className='flex flex-row justify-center items-center gap-3'>
-                                <img src={item?.author?.profile} className='w-[50px] h-[50px] rounded-full' alt="" srcset="" /> <span className='font-semibold'>{item?.author?.username}</span>
+                                <span className='font-semibold'>{item?.author?.username}</span>
                             </h5>
                             <p className='text-[20px]'>{item.description}</p>
                             <span className='text-slate-400'>{new Date(item.createdAt).toLocaleString()}</span>

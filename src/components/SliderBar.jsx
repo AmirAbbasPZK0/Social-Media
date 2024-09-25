@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import {tabHandler} from '../redux/tabReducer'
-
+// import UserProfile from '../../public/user.png'
 
 const SlideBar = () => {
 
@@ -38,7 +38,7 @@ const SlideBar = () => {
             <div className="mr-5">
                 <div className="cursor-pointer rounded-[.95rem]">
                 <img width={50} height={50} className="w-[50px] h-[50px] rounded-[50%]" src={
-                    userData?.profile ? userData?.profile : "https://cdn.vectorstock.com/i/500p/53/42/user-member-avatar-face-profile-icon-vector-22965342.jpg"
+                    userData?.profile !== undefined ? userData?.profile : "../../public/user.png"
                 } alt="avatar image"/>
                 </div>
             </div>
