@@ -7,6 +7,8 @@ const userRouter = require("./routes/userRouter")
 const postRouter = require("./routes/postRouter")
 const http = require("http")
 const commentRouter = require("./routes/commentRouter")
+const socket = require("socket.io")
+const {Server} = require("socket.io")
 
 
 require("./configs/connection")
@@ -20,6 +22,16 @@ const port = 8000
 const app = express()
 
 const server = http.createServer(app)
+
+const io = new Server(server , {
+    cors : {
+        origin : "http://localhost:5173"
+    }
+})
+
+io.on("connection" , socket => {
+    socket.emit("server_message" , {id : socket.id})
+})
 
 app.use(express.static("uploads/profiles/"))
 app.use(express.static("uploads/posts/"))
