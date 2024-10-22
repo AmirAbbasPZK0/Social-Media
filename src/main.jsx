@@ -14,6 +14,7 @@ import {ToastContainer} from 'react-toastify'
 import EditUser from './pages/EditUser.jsx'
 import AddPost from './pages/AddPost.jsx'
 import PostDetails from './pages/PostDetails.jsx'
+import Chat from './pages/Chat.jsx'
 
 
 const router = createBrowserRouter([
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         element : <PostDetails/>,
         path : "/posts/:id"
+      },
+      {
+        element : <Chat/>,
+        path : "/chat"
       }
     ],
     

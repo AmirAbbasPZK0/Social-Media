@@ -18,6 +18,10 @@ const SlideBar = () => {
         {
             title : "Add Post",
             href : "/add-post"
+        },
+        {
+            title : "Chat",
+            href : "/chat"
         }
     ]
 
