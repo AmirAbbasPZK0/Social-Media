@@ -30,7 +30,9 @@ const io = new Server(server , {
 })
 
 io.on("connection" , socket => {
-    socket.emit("server_message" , {id : socket.id})
+    socket.on("client_message" , data => {
+        io.emit("server_message" , {...data , user_id : socket.id})
+    })
 })
 
 app.use(express.static("uploads/profiles/"))
